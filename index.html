@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CO2 Removal Approaches — Mindmap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; overflow: auto; }
+
+  .container { width: 1400px; min-height: 900px; margin: 20px auto; position: relative; }
+
+  h1 { text-align: center; color: #58a6ff; font-size: 18px; padding: 20px 0 10px; letter-spacing: 0.5px; }
+  .subtitle { text-align: center; color: #8b949e; font-size: 12px; margin-bottom: 30px; }
+
+  /* Center node */
+  .center-node {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, #1f6feb 0%, #0d419d 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; font-weight: 700; font-size: 15px; color: #fff;
+    box-shadow: 0 0 30px rgba(31,111,235,0.4);
+    z-index: 10; line-height: 1.3;
+  }
+
+  /* Bucket nodes */
+  .bucket {
+    position: absolute; width: 220px; border-radius: 12px; padding: 14px;
+    cursor: pointer; transition: all 0.3s ease; z-index: 5;
+    border: 1px solid; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .bucket:hover { transform: scale(1.05); z-index: 20; }
+  .bucket h3 { font-size: 13px; margin-bottom: 6px; line-height: 1.3; }
+  .bucket .meta { font-size: 10px; opacity: 0.8; margin-bottom: 8px; }
+  .bucket .ideas { font-size: 10.5px; line-height: 1.5; display: none; }
+  .bucket.expanded .ideas { display: block; }
+  .bucket .ratings { font-size: 10px; margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .bucket .ratings span { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; }
+  .bucket .click-hint { font-size: 9px; opacity: 0.5; margin-top: 6px; text-align: center; }
+  .bucket.expanded .click-hint { display: none; }
+
+  /* Color schemes per bucket */
+  .b1 { background: #1a2332; border-color: #58a6ff; top: 80px; left: 40px; }
+  .b1 h3 { color: #58a6ff; }
+  .b2 { background: #1a2a1a; border-color: #3fb950; top: 80px; right: 40px; }
+  .b2 h3 { color: #3fb950; }
+  .b3 { background: #2a1a2a; border-color: #bc8cff; top: 380px; left: 0px; }
+  .b3 h3 { color: #bc8cff; }
+  .b4 { background: #2a2a1a; border-color: #d29922; top: 380px; right: 0px; }
+  .b4 h3 { color: #d29922; }
+  .b5 { background: #2a1a1a; border-color: #f85149; bottom: 60px; left: 40px; }
+  .b5 h3 { color: #f85149; }
+  .b6 { background: #1a2a2a; border-color: #39d353; bottom: 60px; right: 40px; }
+  .b6 h3 { color: #39d353; }
+
+  /* Lines from center to buckets */
+  svg.lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+  svg.lines line { stroke-width: 1.5; opacity: 0.3; }
+
+  /* Our device indicator */
+  .our-device {
+    position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%);
+    background: linear-gradient(135deg, #1a2a1a, #2a2a1a);
+    border: 2px dashed #d29922; border-radius: 10px; padding: 10px 20px;
+    font-size: 11px; color: #d29922; text-align: center; z-index: 15;
+    max-width: 400px;
+  }
+  .our-device strong { color: #fff; }
+
+  /* Legend */
+  .legend {
+    position: absolute; top: 10px; right: 10px; font-size: 10px;
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    padding: 10px; z-index: 15;
+  }
+  .legend div { margin: 3px 0; display: flex; align-items: center; gap: 6px; }
+  .legend .dot { width: 8px; height: 8px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<h1>CO2 REMOVAL APPROACHES</h1>
+<p class="subtitle">Brainstorming Mindmap — 6 Mechanism Buckets | Click any bucket to expand</p>
+
+<div class="container" id="container">
+
+  <svg class="lines" id="lines"></svg>
+
+  <div class="center-node">Ways to<br>Remove CO2<br>from Blood</div>
+
+  <!-- Bucket 1 -->
+  <div class="bucket b1" onclick="this.classList.toggle('expanded')">
+    <h3>1. Membrane Diffusive Transfer</h3>
+    <div class="meta">Feasibility: 4 | Novelty: 2 | Reg: 2 | Timeline: 3-5yr</div>
+    <div class="ratings">
+      <span>This IS current ECCO2R</span>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong><br>
+      &bull; Microfluidic CO2 stripper chip (Okafor)<br>
+      &bull; Vacuum-assisted membrane extraction (O'Brien)<br>
+      &bull; Countercurrent dialysate membrane (Nair)<br>
+      &bull; Heat-exchanger CO2 transfer (O'Brien)<br>
+      &bull; Bubble aeration for CO2 release (Marco)<br>
+      <br><strong>Key advantage:</strong> Proven tech, clear regulatory path<br>
+      <strong>Key limitation:</strong> Incremental over existing ECCO2R
+    </div>
+    <div class="click-hint">click to expand</div>
+  </div>
+
+  <!-- Bucket 2 -->
+  <div class="bucket b2" onclick="this.classList.toggle('expanded')">
+    <h3>2. Sorbent / Chemical Capture</h3>
+    <div class="meta">Feasibility: 4 | Novelty: 3 | Reg: 3 | Timeline: 3-5yr</div>
+    <div class="ratings">
+      <span>Cartridge-based</span>
+      <span>Regenerable</span>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong><br>
+      &bull; Zeolite/amine sorbent cartridge (Chen)<br>
+      &bull; Ion-exchange resin for HCO3- (Volkov)<br>
+      &bull; Immobilized catalyst bed (Osei)<br>
+      &bull; Breathing circuit CO2 scrubber (Patel)<br>
+      <br><strong>Key advantage:</strong> Selective, compact, regenerable<br>
+      <strong>Key limitation:</strong> Blood biocompatibility of materials
+    </div>
+    <div class="click-hint">click to expand</div>
+  </div>
+
+  <!-- Bucket 3 -->
+  <div class="bucket b3" onclick="this.classList.toggle('expanded')">
+    <h3>3. Enzymatic / Metabolic Shift</h3>
+    <div class="meta">Feasibility: 2 | Novelty: 5 | Reg: 5 | Timeline: 7-10yr</div>
+    <div class="ratings">
+      <span>Highest novelty</span>
+      <span>Highest risk</span>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong><br>
+      &bull; Injected engineered carbonic anhydrase (Osei)<br>
+      &bull; Pharmacological Bohr effect enhancement (Yamamoto)<br>
+      &bull; CA reverse-reaction inhibitor (Osei)<br>
+      &bull; Enzymatic acceleration of HCO3- → CO2 (Chen)<br>
+      <br><strong>Key advantage:</strong> Elegant, no hardware in blood<br>
+      <strong>Key limitation:</strong> IND pathway, off-target effects, years of preclinical
+    </div>
+    <div class="click-hint">click to expand</div>
+  </div>
+
+  <!-- Bucket 4 -->
+  <div class="bucket b4" onclick="this.classList.toggle('expanded')">
+    <h3>4. Electrochemical Removal</h3>
+    <div class="meta">Feasibility: 3 | Novelty: 4 | Reg: 4 | Timeline: 5-7yr</div>
+    <div class="ratings">
+      <span>No consumables</span>
+      <span>Selective</span>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong><br>
+      &bull; Electrodialysis to drive HCO3- across membrane (Volkov)<br>
+      &bull; DC voltage selective ion removal<br>
+      &bull; Electrochemical CO2 conversion<br>
+      <br><strong>Key advantage:</strong> Regenerates electrically, no sorbent replacement<br>
+      <strong>Key limitation:</strong> Must prove safe current density in blood contact, hemolysis risk
+    </div>
+    <div class="click-hint">click to expand</div>
+  </div>
+
+  <!-- Bucket 5 -->
+  <div class="bucket b5" onclick="this.classList.toggle('expanded')">
+    <h3>5. Implantable / Distributed</h3>
+    <div class="meta">Feasibility: 2 | Novelty: 5 | Reg: 5 | Timeline: 10+yr</div>
+    <div class="ratings">
+      <span>Moonshot</span>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong><br>
+      &bull; Subcutaneous "artificial gill" (Okafor)<br>
+      &bull; In-body high-surface-area membrane<br>
+      &bull; Vascular-integrated CO2 exchanger<br>
+      <br><strong>Key advantage:</strong> No extracorporeal circuit at all<br>
+      <strong>Key limitation:</strong> Unproven in humans, PMA, years of animal data needed
+    </div>
+    <div class="click-hint">click to expand</div>
+  </div>
+
+  <!-- Bucket 6 -->
+  <div class="bucket b6" onclick="this.classList.toggle('expanded')">
+    <h3>6. Ventilation Augmentation</h3>
+    <div class="meta">Feasibility: 5 | Novelty: 1 | Reg: 1 | Timeline: Now</div>
+    <div class="ratings">
+      <span>Baseline comparison</span>
+    </div>
+    <div class="ideas">
+      <strong>Ideas:</strong><br>
+      &bull; Optimized MV / dead-space mgmt (Reyes)<br>
+      &bull; Inline ET tube CO2 filter (Reyes)<br>
+      &bull; Rebreather mask with sorbent (Yamamoto)<br>
+      &bull; Breathing circuit scrubber (Patel)<br>
+      <br><strong>Key advantage:</strong> Available now, no blood contact<br>
+      <strong>Key limitation:</strong> Not enough for severe cases — that's why ECCO2R exists
+    </div>
+    <div class="click-hint">click to expand</div>
+  </div>
+
+  <div class="our-device">
+    <strong>OUR DEVICE</strong> sits at the intersection of <strong>Bucket 2</strong> (sorbent/chemical HCO3- removal) + <strong>Bucket 4</strong> (electrochemical) — with built-in regional anticoagulation via acidification
+  </div>
+
+  <div class="legend">
+    <div><div class="dot" style="background:#58a6ff"></div> Membrane Diffusive (current ECCO2R)</div>
+    <div><div class="dot" style="background:#3fb950"></div> Sorbent / Chemical</div>
+    <div><div class="dot" style="background:#bc8cff"></div> Enzymatic / Metabolic</div>
+    <div><div class="dot" style="background:#d29922"></div> Electrochemical</div>
+    <div><div class="dot" style="background:#f85149"></div> Implantable</div>
+    <div><div class="dot" style="background:#39d353"></div> Ventilation Augment</div>
+  </div>
+</div>
+
+<script>
+// Draw lines from center to each bucket
+function drawLines() {
+  const svg = document.getElementById('lines');
+  const container = document.getElementById('container');
+  const rect = container.getBoundingClientRect();
+  const cx = rect.width / 2;
+  const cy = rect.height / 2;
+
+  const colors = {
+    'b1': '#58a6ff', 'b2': '#3fb950', 'b3': '#bc8cff',
+    'b4': '#d29922', 'b5': '#f85149', 'b6': '#39d353'
+  };
+
+  svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
+  svg.innerHTML = '';
+
+  document.querySelectorAll('.bucket').forEach(bucket => {
+    const br = bucket.getBoundingClientRect();
+    const cr = container.getBoundingClientRect();
+    const bx = (br.left - cr.left) + br.width / 2;
+    const by = (br.top - cr.top) + br.height / 2;
+
+    const cls = Array.from(bucket.classList).find(c => c.startsWith('b'));
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', cx);
+    line.setAttribute('y1', cy);
+    line.setAttribute('x2', bx);
+    line.setAttribute('y2', by);
+    line.setAttribute('stroke', colors[cls] || '#fff');
+    svg.appendChild(line);
+  });
+}
+
+window.addEventListener('load', () => setTimeout(drawLines, 100));
+window.addEventListener('resize', drawLines);
+</script>
+
+</body>
+</html>
